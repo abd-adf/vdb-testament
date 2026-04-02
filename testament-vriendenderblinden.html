@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TWPBZ9FT');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legaat &amp; Testament – Vrienden der Blinden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aller:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --burgundy:      #A7120D;
+      --burgundy-dark: #870e0a;
+      --dark:          #1a1a18;
+      --muted:         #5a5a56;
+      --border:        rgba(0,0,0,.1);
+      --bg:            #f5f3f0;
+      --white:         #ffffff;
+      --max-w:         1140px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      color: var(--dark); background: var(--white);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 32px;
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { width: 178px; height: 125px; object-fit: contain; }
+    .nav-lang {
+      font-family: 'Open Sans', sans-serif; font-size: .88rem; font-weight: 700;
+      color: var(--burgundy); border: 2px solid var(--burgundy);
+      border-radius: 4px; padding: 5px 14px;
+      transition: background .15s, color .15s;
+    }
+    .nav-lang:hover { background: var(--burgundy); color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 680px;
+      background: #111;
+      overflow: hidden;
+    }
+    .hero-photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      opacity: .85;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(100deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.35) 38%, rgba(0,0,0,.1) 70%, transparent 100%);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: var(--max-w); margin: 0 auto; width: 100%;
+      padding: 40px 32px 52px;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 40px;
+      min-height: 680px;
+    }
+    .hero-copy {
+      flex: 1;
+      padding-top: 160px;
+    }
+    .hero-headline {
+      font-family: 'Aller', sans-serif;
+      font-size: 44px;
+      font-weight: 700; line-height: 1.08;
+      text-transform: uppercase; letter-spacing: .01em;
+      margin-bottom: 24px;
+      text-shadow: 0 1px 8px rgba(0,0,0,.5);
+    }
+    .hero-headline .white { color: var(--white); display: block; }
+    .hero-headline .red   { color: #e63312; display: block; }
+    .hero-subline {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 400; color: var(--white); line-height: 1.4;
+      text-shadow: 0 1px 8px rgba(0,0,0,.5);
+    }
+
+    /* Formulaire flottant — aligné en haut à droite */
+    .hero-right {
+      background: var(--white);
+      display: flex; flex-direction: column;
+      width: 480px; min-width: 460px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,.18);
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+
+    /* Barre titre formulaire */
+    .form-header {
+      background: var(--burgundy);
+      padding: 16px 20px;
+      border-radius: 8px 8px 0 0;
+    }
+    .form-header h2 {
+      font-family: 'Aller', sans-serif;
+      font-size: 1.25rem; font-weight: 700; color: var(--white);
+      text-transform: uppercase; letter-spacing: .04em; line-height: 1.3;
+      text-align: center;
+    }
+
+    /* Formulaire */
+    .form-body { padding: 16px 20px; flex: 1; }
+
+    .field-group { margin-bottom: 8px; }
+    .field-group > label { display: none; }
+    .field-group input:not([type="radio"]),
+    .field-group select {
+      width: 100%; padding: 10px 14px;
+      border: 1px solid #bbb; border-radius: 4px;
+      font-family: 'Open Sans', sans-serif; font-size: 1rem; color: var(--dark);
+      background: var(--white); outline: none;
+      transition: border-color .15s, box-shadow .15s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .field-group input:not([type="radio"])::placeholder { color: #888; }
+    .field-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px;
+    }
+    .field-group input:focus,
+    .field-group select:focus {
+      border-color: var(--burgundy); box-shadow: 0 0 0 3px rgba(167,18,13,.1);
+    }
+    .field-group input.error,
+    .field-group select.error { border-color: var(--burgundy); background: #fff5f5; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    /* Choix envoi — style card */
+    .envoi-label {
+      font-size: .85rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 8px; display: block;
+    }
+    .envoi-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .envoi-option { cursor: pointer; user-select: none; }
+    .envoi-option input[type="radio"] { display: none; }
+    .envoi-box {
+      display: flex; align-items: center; gap: 9px;
+      padding: 12px 14px;
+      border: 1.5px solid rgba(0,0,0,.12); border-radius: 8px;
+      background: var(--bg); font-size: .95rem; font-weight: 500;
+      color: var(--dark); transition: border-color .15s, background .15s, box-shadow .15s;
+      white-space: nowrap;
+    }
+    .envoi-box svg { width: 16px; height: 16px; stroke: var(--muted); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; transition: stroke .15s; }
+    .envoi-option:hover .envoi-box { border-color: var(--burgundy); background: #fff5f5; }
+    .envoi-option:hover .envoi-box svg { stroke: var(--burgundy); }
+    .envoi-option input:checked + .envoi-box {
+      border-color: var(--burgundy); background: #fff5f5;
+      box-shadow: 0 0 0 3px rgba(167,18,13,.1);
+    }
+    .envoi-option input:checked + .envoi-box svg { stroke: var(--burgundy); }
+
+    /* Champs conditionnels */
+    #fields-common,
+    #fields-email,
+    #fields-post { display: none; }
+
+    /* Bouton */
+    .btn-submit {
+      display: block; width: 100%; margin-top: 20px; position: relative; z-index: 0;
+      background: var(--burgundy); color: var(--white);
+      font-family: 'Aller', sans-serif; font-size: 1.25rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      border: none; border-radius: 999px; padding: 14px;
+      cursor: pointer; transition: background .2s, transform .15s;
+    }
+    .btn-submit:hover { background: var(--burgundy-dark); transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* Carte contact Astrid */
+    .contact-card {
+      border-top: 1px solid var(--border);
+      padding: 24px 28px;
+      display: flex; align-items: center; gap: 24px;
+    }
+    .contact-photo {
+      width: 130px; height: 130px; min-width: 130px;
+      border-radius: 50%; overflow: hidden;
+      flex-shrink: 0;
+    }
+    .contact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .contact-info { font-size: 0.95rem; line-height: 1.6; }
+    .contact-info .contact-intro {
+      font-family: 'Open Sans', sans-serif; font-size: 0.95rem;
+      color: var(--dark); line-height: 1.6; margin-bottom: 14px;
+    }
+    .contact-info .contact-intro strong {
+      font-family: 'Aller', sans-serif; font-weight: 700;
+      color: var(--burgundy); text-transform: uppercase;
+    }
+    .contact-info .contact-coords { display: flex; flex-direction: column; gap: 4px; }
+    .contact-info a {
+      color: var(--burgundy); font-weight: 700;
+      font-family: 'Aller', sans-serif; font-size: 0.95rem;
+      display: block;
+    }
+    .contact-info a:hover { text-decoration: underline; }
+
+    /* Succès */
+    .success-box {
+      display: none; padding: 32px 28px; text-align: center;
+    }
+    .success-box.visible { display: block; }
+    .success-icon {
+      width: 48px; height: 48px; background: #45A85A; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;
+    }
+    .success-icon svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .success-box h3 { font-family: 'Aller', sans-serif; font-size: 1.1rem; color: #2D6E3F; margin-bottom: 6px; }
+    .success-box p  { font-size: .95rem; color: #3F7A52; }
+
+    /* ── SECTION PRESENTATIE ── */
+    .ada-intro {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 56px 32px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .ada-stats {
+      display: flex; gap: 12px; align-items: stretch;
+    }
+    .ada-text p {
+      font-size: 1rem; color: var(--muted); line-height: 1.8;
+    }
+    .ada-text p strong {
+      font-family: 'Aller', sans-serif; font-weight: 700;
+      color: var(--burgundy); font-size: 1.3125rem;
+      display: block; margin-bottom: 8px;
+    }
+    .ada-stat {
+      background: #f0ece5;
+      border-radius: 12px;
+      padding: 20px 24px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .ada-stat-num {
+      font-family: 'Aller', sans-serif;
+      font-size: 3rem; font-weight: 700;
+      color: var(--burgundy); line-height: 1;
+      display: block; margin-bottom: 6px;
+    }
+    .ada-stat-label {
+      font-size: .95rem; color: var(--muted); line-height: 1.5;
+    }
+    .ada-stat-label strong {
+      font-family: 'Aller', sans-serif; font-weight: 700;
+      color: var(--burgundy); display: block; font-size: 1.1rem; margin-bottom: 4px;
+    }
+
+    /* ── FAQ ── */
+    .faq-section {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 52px 32px 60px;
+    }
+    .faq-section h2 {
+      font-family: 'Aller', sans-serif;
+      font-size: 1.4375rem; font-weight: 700;
+      color: var(--burgundy); text-align: left;
+      margin-bottom: 12px; line-height: 1.35;
+    }
+    .faq-intro {
+      font-size: 1rem; color: var(--muted); line-height: 1.7;
+      margin-bottom: 32px; font-style: italic;
+      text-align: left;
+    }
+
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-of-type { border-top: 1px solid var(--border); }
+    .faq-question {
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 18px 0;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      text-align: left;
+      font-family: 'Open Sans', sans-serif; font-size: 1rem; font-weight: 600;
+      color: var(--dark); line-height: 1.4; transition: color .15s;
+    }
+    .faq-question:hover { color: var(--burgundy); }
+    .faq-icon {
+      width: 20px; height: 20px; min-width: 20px;
+      border-radius: 50%; background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, transform .25s;
+      flex-shrink: 0;
+    }
+    .faq-icon svg { width: 9px; height: 9px; stroke: var(--muted); fill: none; stroke-width: 2.5; stroke-linecap: round; transition: stroke .15s; }
+    .faq-question:hover .faq-icon { background: #fde8e7; }
+    .faq-question:hover .faq-icon svg { stroke: var(--burgundy); }
+    .faq-question[aria-expanded="true"] .faq-icon { background: var(--burgundy); transform: rotate(45deg); }
+    .faq-question[aria-expanded="true"] .faq-icon svg { stroke: var(--white); }
+    .faq-answer { overflow: hidden; max-height: 0; transition: max-height .35s ease; }
+    .faq-answer-inner {
+      padding-bottom: 18px;
+      font-size: 1rem; line-height: 1.8; color: var(--muted);
+    }
+    .faq-answer-inner ul { padding-left: 18px; margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    /* ── CTA SECONDAIRE ── */
+    .cta-section {
+      text-align: center;
+      padding: 52px 32px;
+      border-top: 1px solid var(--border);
+    }
+    .cta-section p {
+      font-family: 'Aller', sans-serif;
+      font-size: 23px; font-weight: 700;
+      color: var(--burgundy); margin-bottom: 6px;
+    }
+    .cta-section .cta-sub {
+      font-family: 'Aller', sans-serif;
+      font-size: 23px; font-weight: 700;
+      color: var(--burgundy); margin-bottom: 24px;
+    }
+    .btn-cta {
+      display: inline-block;
+      background: var(--burgundy); color: var(--white);
+      font-family: 'Aller', sans-serif; font-size: 1.25rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      border-radius: 999px; padding: 15px 40px;
+      transition: background .2s, transform .15s;
+    }
+    .btn-cta:hover { background: var(--burgundy-dark); transform: translateY(-1px); }
+
+    /* ── BANNER PLEINE LARGEUR ── */
+    .banner-section {
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+    }
+    .banner-section img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 38%;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      padding: 48px 32px;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 52px; align-items: start;
+    }
+    .footer-logo { width: 211px; height: 150px; object-fit: contain; }
+    .footer-info { color: var(--white); }
+    .footer-info h3 {
+      font-family: 'Aller', sans-serif;
+      font-size: 1.125rem; font-weight: 700; color: var(--white);
+      margin-bottom: 10px;
+    }
+    .footer-info p { font-size: 0.875rem; color: rgba(255,255,255,.7); line-height: 1.75; }
+    .footer-info p + p { margin-top: 6px; }
+
+    /* ── STICKY MOBILE ── */
+    .sticky-cta {
+      display: none; position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(255,255,255,.97); backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px env(safe-area-inset-bottom);
+      z-index: 150;
+    }
+    .sticky-cta a {
+      display: block; background: var(--burgundy); color: var(--white);
+      font-family: 'Aller', sans-serif; font-size: .95rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em; text-align: center;
+      border-radius: 999px; padding: 13px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hero-inner { flex-direction: column; align-items: stretch; gap: 28px; padding: 32px 24px; min-height: unset; }
+      .hero-copy { padding-top: 20px; }
+      .hero-right { width: 100%; min-width: unset; align-self: auto; }
+      .ada-intro { gap: 24px; padding: 40px 24px; }
+      .ada-stats { flex-wrap: wrap; }
+      .ada-stat { text-align: left; flex: 1; min-width: 120px; }
+      .faq-section { padding: 0 24px 48px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 600px) {
+      .hero { min-height: unset; }
+      .hero-headline { font-size: 1.8rem; }
+      .form-body { padding: 14px 16px; }
+      .form-header { padding: 14px 16px; }
+      .contact-card { padding: 16px; }
+      .contact-photo { width: 90px; height: 90px; min-width: 90px; }
+      .cta-section { padding: 40px 24px; }
+      .sticky-cta { display: block; }
+      body { padding-bottom: 70px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWPBZ9FT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <img class="nav-logo" src="https://adfinitas.b-cdn.net/ada/lp/testament/nl/LogoNL-ASBL-700x496.png" alt="Vrienden der Blinden">
+    <a class="nav-lang" href="https://ada-legacy-fr.netlify.app">FR</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <img class="hero-photo" src="https://adfinitas.b-cdn.net/ada/lp/testament/0-image-header-fr.webp" alt="Persoon met visuele beperking en geleidehond">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+
+    <!-- LINKS : tekst -->
+    <div class="hero-copy">
+      <h1 class="hero-headline">
+        <span class="white">OP ZIEN STAAT GEEN PRIJS,</span>
+        <span class="red">OP EEN GELEIDEHOND WEL.</span>
+      </h1>
+      <p class="hero-subline">Jouw erfenis kan zoveel levens veranderen.</p>
+    </div>
+
+    <!-- RECHTS : formulier -->
+    <div class="hero-right">
+
+    <div class="form-header">
+      <h2>VRAAG JE BROCHURE OVER HET TESTAMENT AAN</h2>
+    </div>
+
+    <div class="form-body">
+      <form id="contact-form" name="vdb-legaat-nl" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="vdb-legaat-nl">
+        <input type="text" name="bot-field" style="display:none">
+
+        <!-- Keuze verzendmethode EERST -->
+        <div class="field-group" style="margin-bottom:12px;">
+          <span class="envoi-label">Ik zou graag informatie ontvangen</span>
+          <div class="envoi-options">
+            <label class="envoi-option">
+              <input type="radio" name="envoi" value="Email" id="envoi-email" required>
+              <span class="envoi-box">
+                <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+                Via e-mail
+              </span>
+            </label>
+            <label class="envoi-option">
+              <input type="radio" name="envoi" value="Post" id="envoi-post">
+              <span class="envoi-box">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Per post
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Gemeenschappelijke velden -->
+        <div id="fields-common">
+          <div class="field-group">
+            <select id="civilite" name="aanspreektitel" required>
+              <option value="" disabled selected>Aanspreektitel</option>
+              <option value="Mevrouw">Mevrouw</option>
+              <option value="Meneer">Meneer</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <input type="text" id="nom" name="naam" placeholder="Naam" required>
+          </div>
+          <div class="field-group">
+            <input type="text" id="prenom" name="voornaam" placeholder="Voornaam">
+          </div>
+        </div>
+
+        <!-- Specifieke velden EMAIL -->
+        <div id="fields-email">
+          <div class="field-group">
+            <input type="email" id="email" name="email" placeholder="E-mail">
+          </div>
+          <div class="field-group">
+            <input type="tel" id="tel" name="telefoon" placeholder="Telefoon">
+          </div>
+        </div>
+
+        <!-- Specifieke velden POST -->
+        <div id="fields-post">
+          <div class="field-group">
+            <input type="text" id="adresse" name="adres" placeholder="Adres">
+          </div>
+          <div class="field-group">
+            <input type="text" id="cp" name="postcode" placeholder="Postcode" inputmode="numeric">
+          </div>
+          <div class="field-group">
+            <input type="text" id="ville" name="gemeente" placeholder="Gemeente">
+          </div>
+          <div class="field-group">
+            <input type="tel" id="tel-post" name="telefoon" placeholder="Telefoon">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submit-btn" style="display:none;">IK BEVESTIG</button>
+      </form>
+
+      <div class="success-box" id="success-msg">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Dank je wel!</h3>
+        <p>Astrid neemt zeer binnenkort contact met je op.</p>
+      </div>
+    </div>
+
+    <!-- Contactkaart Astrid -->
+    <div class="contact-card">
+      <div class="contact-photo">
+        <img src="https://adfinitas.b-cdn.net/ada/lp/testament/nl/65640441-0-Astrid-Fundlettre-1.webp" alt="Astrid Sonneville">
+      </div>
+      <div class="contact-info">
+        <p class="contact-intro">Neem contact op met <strong>ASTRID SONNEVILLE</strong>,<br>uw vaste contactpersoon die u kan adviseren of doorverwijzen naar de juiste expert</p>
+        <div class="contact-coords">
+          <a href="tel:+3258533303">+32 58 53 33 03 / +32 479 87 22 36</a>
+          <a href="mailto:a.sonneville@vriendenderblinden.org">a.sonneville@vriendenderblinden.org</a>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- .hero-right -->
+  </div><!-- .hero-inner -->
+</section>
+
+<!-- PRESENTATIE VDB -->
+<div class="ada-intro">
+  <div class="ada-text">
+    <p>
+      <strong>Vrienden der Blinden</strong>
+      streeft al 140 jaar naar autonomie en integratie van personen met een visuele beperking. Dit enerzijds aan de hand van een gratis sociale dienst en anderzijds aan de hand van een opleidingscentrum voor blindengeleidehonden.
+    </p>
+  </div>
+  <div class="ada-stats">
+    <div class="ada-stat">
+      <span class="ada-stat-num">85+</span>
+      <span class="ada-stat-label">
+        <strong>Geleidehonden</strong>
+        in activiteit, gratis ter beschikking gesteld aan begunstigden
+      </span>
+    </div>
+    <div class="ada-stat">
+      <span class="ada-stat-num">4 000</span>
+      <span class="ada-stat-label">
+        <strong>Begunstigden</strong>
+        begeleid elk jaar
+      </span>
+    </div>
+    <div class="ada-stat">
+      <span class="ada-stat-num">103</span>
+      <span class="ada-stat-label">
+        <strong>Vrijwilligers</strong>
+        dagelijks gemobiliseerd
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section" id="informaties">
+  <h2>Een legaat nalaten aan Vrienden der Blinden: laat je vermogen in goede handen achter!</h2>
+  <p class="faq-intro">In onze brochure over legaten en testamenten beantwoorden we de meest gestelde vragen van onze trouwe donateurs. Hieronder vind je een eerste uittreksel:</p>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      Waarom een legaat aan Vrienden der Blinden?
+      <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Een legaat nalaten aan Vrienden der Blinden betekent steun verlenen aan een essentieel doel: de autonomie en levenskwaliteit van blinden en slechtzienden in België. Met uw testament financiert u concrete acties zoals sociale begeleiding, gespecialiseerd onderwijs, sensibilisering rond inclusie en vooral de opleiding van blindengeleidehonden. Deze solidaire geste zet uw waarden voort en heeft een directe impact op het dagelijks leven van de begunstigden.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      Kan men aan een vereniging nalaten als men kinderen heeft?
+      <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Ja. De Belgische wet beschermt kinderen via het erfdeel (de helft van het vermogen komt hen toe). U kunt echter vrij beschikken over de andere helft om deze te schenken aan een vereniging zoals Vrienden der Blinden.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      Wat houdt een legaat aan Vrienden der Blinden concreet in?
+      <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        Uw legaat financiert rechtstreeks:
+        <ul>
+          <li>Sociale begeleiding van mensen met een visuele beperking,</li>
+          <li>Opleiding en terbeschikkingstelling van geleidehonden,</li>
+          <li>Speciaal onderwijs,</li>
+          <li>Bewustmaking rond inclusie en toegankelijkheid.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false">
+      Welke goederen kunnen aan een vereniging worden nagelaten?
+      <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+    </button>
+    <div class="faq-answer">
+      <div class="faq-answer-inner">
+        U kunt het volgende nalaten:
+        <ul>
+          <li>Geld,</li>
+          <li>Onroerend goed (huis, appartement, grond),</li>
+          <li>Roerende goederen (kunstwerken, juwelen, aandelen, enz.),</li>
+          <li>Een levensverzekering.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA SECONDAIRE -->
+<div class="cta-section">
+  <p>Wil je meer weten?</p>
+  <p class="cta-sub">Vraag vandaag nog onze brochure over legaten aan</p>
+  <a class="btn-cta" href="#top">IK WIL DE LEGATENGIDS AANVRAGEN</a>
+</div>
+
+<!-- BANNER PLEINE LARGEUR -->
+<div class="banner-section">
+  <img src="https://adfinitas.b-cdn.net/ada/lp/testament/banners-section.jpg" alt="">
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img class="footer-logo" src="https://adfinitas.b-cdn.net/ada/lp/testament/nl/logo_footer_nl.png" alt="Vrienden der Blinden">
+    <div class="footer-info">
+      <h3>Vrienden der Blinden en Slechtzienden v.z.w.</h3>
+      <p>Wij vormen een hechte gemeenschap waarin iedereen, ongeacht zijn of haar handicap, ten volle kan leven en een bijdrage levert aan de samenleving.</p>
+      <p>+32 58 53 33 03 | <a href="mailto:a.sonneville@vriendenderblinden.org" style="color:rgba(255,255,255,.7)">a.sonneville@vriendenderblinden.org</a> | Hendrik Noterdaemestraat 1 - 8670 Koksijde</p>
+      <p>Maandag tot en met vrijdag, van 8.00 tot 16.00 uur</p>
+      <p>IBAN : BE08 2800 7787 8913 | KBO : 0406 579 854</p>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE -->
+<div class="sticky-cta">
+  <a href="#top">IK WIL DE LEGATENGIDS AANVRAGEN</a>
+</div>
+
+<script>
+  // Logique formulaire dynamique
+  const envoiRadios  = document.querySelectorAll('input[name="envoi"]');
+  const fieldsCommon = document.getElementById('fields-common');
+  const fieldsEmail  = document.getElementById('fields-email');
+  const fieldsPost   = document.getElementById('fields-post');
+  const submitBtn    = document.getElementById('submit-btn');
+
+  const emailInput   = document.getElementById('email');
+  const adresseInput = document.getElementById('adresse');
+  const cpInput      = document.getElementById('cp');
+  const villeInput   = document.getElementById('ville');
+
+  function toggleFields(mode) {
+    fieldsCommon.style.display = 'block';
+    submitBtn.style.display    = 'block';
+
+    if (mode === 'Email') {
+      fieldsEmail.style.display = 'block';
+      fieldsPost.style.display  = 'none';
+      emailInput.required   = true;
+      adresseInput.required = false;
+      cpInput.required      = false;
+      villeInput.required   = false;
+    } else {
+      fieldsEmail.style.display = 'none';
+      fieldsPost.style.display  = 'block';
+      emailInput.required   = false;
+      adresseInput.required = true;
+      cpInput.required      = true;
+      villeInput.required   = true;
+    }
+  }
+
+  envoiRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      toggleFields(this.value);
+    });
+  });
+
+  // Form submit
+  const form = document.getElementById('contact-form');
+  const btn  = document.getElementById('submit-btn');
+  const successMsg = document.getElementById('success-msg');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    let valid = true;
+
+    form.querySelectorAll('[required]').forEach(el => {
+      el.classList.remove('error');
+      if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+    });
+    if (!form.querySelector('[name="envoi"]:checked')) valid = false;
+    if (!valid) { form.querySelector('.error')?.focus(); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Bezig met verzenden…';
+
+    try {
+      const res = await fetch('/testament-vriendenderblinden.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        successMsg.classList.add('visible');
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'form_submit' });
+      } else { throw new Error(); }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'IK BEVESTIG';
+      alert('Er is een fout opgetreden. Probeer het opnieuw.');
+    }
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', function() {
+      const item   = this.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
