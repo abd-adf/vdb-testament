@@ -77,12 +77,10 @@
       position: relative; z-index: 1;
       max-width: var(--max-w); margin: 0 auto; width: 100%;
       padding: 40px 32px 52px;
-      display: flex; align-items: flex-start; justify-content: space-between;
-      gap: 40px;
       min-height: 680px;
     }
     .hero-copy {
-      flex: 1;
+      max-width: 540px;
       padding-top: 160px;
     }
     .hero-headline {
@@ -102,7 +100,12 @@
       text-shadow: 0 1px 8px rgba(0,0,0,.5);
     }
 
-    /* Formulaire flottant — aligné en haut à droite */
+    /* Wrapper hero + formulaire */
+    .hero-wrapper {
+      position: relative;
+    }
+
+    /* Formulaire flottant — positionné en absolu dans .hero-wrapper sur desktop */
     .hero-right {
       background: var(--white);
       display: flex; flex-direction: column;
@@ -110,9 +113,16 @@
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,.18);
-      flex-shrink: 0;
-      align-self: flex-start;
+      position: absolute;
+      top: 40px;
+      right: calc((100% - var(--max-w)) / 2 + 32px);
+      z-index: 2;
     }
+    @media (max-width: 1200px) {
+      .hero-right { right: 32px; }
+    }
+    /* Réserve l'espace vertical pour le formulaire absolu (calculé par JS) */
+    .hero-wrapper-spacer { display: block; }
 
     /* Barre titre formulaire */
     .form-header {
@@ -403,9 +413,15 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .hero-inner { flex-direction: column; align-items: stretch; gap: 28px; padding: 32px 24px; min-height: unset; }
+      .hero-inner { padding: 32px 24px 32px; min-height: 280px; }
       .hero-copy { padding-top: 20px; }
-      .hero-right { width: 100%; min-width: unset; align-self: auto; }
+      .hero-right {
+        position: static;
+        width: 100%; min-width: unset;
+        border-radius: 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,.12);
+      }
+      .hero-wrapper { padding-bottom: 0; }
       .ada-intro { gap: 24px; padding: 40px 24px; }
       .ada-stats { flex-wrap: wrap; }
       .ada-stat { text-align: left; flex: 1; min-width: 120px; }
@@ -413,7 +429,8 @@
       .footer-inner { grid-template-columns: 1fr; gap: 28px; }
     }
     @media (max-width: 600px) {
-      .hero { min-height: unset; }
+      .hero { min-height: 200px; }
+      .hero-inner { padding: 24px 24px 28px; }
       .hero-headline { font-size: 1.8rem; }
       .form-body { padding: 14px 16px; }
       .form-header { padding: 14px 16px; }
@@ -435,9 +452,12 @@
 <nav class="nav">
   <div class="nav-inner">
     <img class="nav-logo" src="https://adfinitas.b-cdn.net/ada/lp/testament/nl/LogoNL-ASBL-700x496.png" alt="Vrienden der Blinden">
-    <a class="nav-lang" href="https://ada-legacy-fr.netlify.app">FR</a>
+    <a class="nav-lang" href="https://testament.amisdesaveugles.org/">FR</a>
   </div>
 </nav>
+
+<!-- HERO WRAPPER -->
+<div class="hero-wrapper">
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -454,8 +474,11 @@
       <p class="hero-subline">Uw erfenis kan zoveel levens veranderen.</p>
     </div>
 
-    <!-- RECHTS : formulier -->
-    <div class="hero-right">
+  </div><!-- .hero-inner -->
+</section>
+
+<!-- FORMULIER — positionné en absolu dans .hero-wrapper sur desktop, flux normal sur mobile -->
+<div class="hero-right" id="form-block">
 
     <div class="form-header">
       <h2>VRAAG UW BROCHURE OVER HET TESTAMENT AAN</h2>
@@ -478,7 +501,7 @@
               </span>
             </label>
             <label class="envoi-option">
-              <input type="radio" name="envoi" value="Post" id="envoi-post">
+              <input type="radio" name="envoi" value="Post" id="envoi-post" checked>
               <span class="envoi-box">
                 <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 Per post
@@ -556,9 +579,11 @@
       </div>
     </div>
 
-    </div><!-- .hero-right -->
-  </div><!-- .hero-inner -->
-</section>
+</div><!-- #form-block -->
+
+<div class="hero-wrapper-spacer" id="hero-spacer"></div>
+
+</div><!-- .hero-wrapper -->
 
 <!-- PRESENTATIE VDB -->
 <div class="ada-intro">
@@ -691,6 +716,22 @@
 </div>
 
 <script>
+  // Ajuste la hauteur du spacer pour que le formulaire absolu ne recouvre pas la section suivante
+  function adjustHeroSpacer() {
+    const formBlock = document.getElementById('form-block');
+    const spacer    = document.getElementById('hero-spacer');
+    if (!formBlock || !spacer) return;
+    if (window.innerWidth > 960) {
+      const wrapperTop = formBlock.closest('.hero-wrapper').getBoundingClientRect().top + window.scrollY;
+      const formBottom = formBlock.getBoundingClientRect().bottom + window.scrollY;
+      const heroBottom = formBlock.closest('.hero-wrapper').querySelector('.hero').getBoundingClientRect().bottom + window.scrollY;
+      const overflow   = formBottom - heroBottom;
+      spacer.style.height = overflow > 0 ? overflow + 24 + 'px' : '0';
+    } else {
+      spacer.style.height = '0';
+    }
+  }
+
   // Logique formulaire dynamique
   const envoiRadios  = document.querySelectorAll('input[name="envoi"]');
   const fieldsCommon = document.getElementById('fields-common');
@@ -727,8 +768,14 @@
   envoiRadios.forEach(radio => {
     radio.addEventListener('change', function() {
       toggleFields(this.value);
+      adjustHeroSpacer();
     });
   });
+
+  // Initialiseer met "Post" voorgeselecteerd
+  toggleFields('Post');
+  adjustHeroSpacer();
+  window.addEventListener('resize', adjustHeroSpacer);
 
   // Form submit
   const form = document.getElementById('contact-form');
