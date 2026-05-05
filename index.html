@@ -489,6 +489,9 @@
       <form id="contact-form" name="vdb-legaat-nl" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
         <input type="hidden" name="form-name" value="vdb-legaat-nl">
         <input type="text" name="bot-field" style="display:none">
+        <input type="hidden" id="utm_source" name="utm_source">
+        <input type="hidden" id="utm_medium" name="utm_medium">
+        <input type="hidden" id="utm_content" name="utm_content">
 
         <!-- Keuze verzendmethode EERST -->
         <div class="field-group" style="margin-bottom:12px;">
@@ -526,15 +529,15 @@
           <div class="field-group">
             <input type="text" id="prenom" name="voornaam" placeholder="Voornaam">
           </div>
+          <div class="field-group">
+            <input type="tel" id="tel" name="telefoon" placeholder="Telefoon">
+          </div>
         </div>
 
         <!-- Specifieke velden EMAIL -->
         <div id="fields-email">
           <div class="field-group">
             <input type="email" id="email" name="email" placeholder="E-mail">
-          </div>
-          <div class="field-group">
-            <input type="tel" id="tel" name="telefoon" placeholder="Telefoon">
           </div>
         </div>
 
@@ -548,9 +551,6 @@
           </div>
           <div class="field-group">
             <input type="text" id="ville" name="gemeente" placeholder="Gemeente">
-          </div>
-          <div class="field-group">
-            <input type="tel" id="tel-post" name="telefoon" placeholder="Telefoon">
           </div>
         </div>
 
@@ -833,5 +833,7 @@
   });
 </script>
 
+
+<script src="js/utm.js"></script>
 </body>
 </html>
